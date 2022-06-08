@@ -8,7 +8,7 @@
 
         <variable
             name="detailViewModel"
-            type="ru.zavanton.demo.main.detail.DetailViewModel"
+            type="ru.zavanton.demo.main.detail.ui.DetailViewModel"
             />
     </data>
 

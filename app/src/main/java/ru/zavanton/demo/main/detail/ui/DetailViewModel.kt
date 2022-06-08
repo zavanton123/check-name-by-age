@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.detail
+package ru.zavanton.demo.main.detail.ui
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

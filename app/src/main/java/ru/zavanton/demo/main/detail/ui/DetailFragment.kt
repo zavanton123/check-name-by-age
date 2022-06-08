@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.detail
+package ru.zavanton.demo.main.detail.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +15,7 @@ class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
 
     private val detailViewModel by viewModels<DetailViewModel>()
-    private val detailFragmentArgs by navArgs<DetailFragmentArgs>()
+    private val detailFragmentArgs by navArgs<ru.zavanton.demo.main.detail.DetailFragmentArgs>()
 
     companion object {
         private const val DETAIL_ID_ARG = "detailId"

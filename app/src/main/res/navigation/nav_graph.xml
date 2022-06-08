@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="ru.zavanton.demo.main.detail.DetailFragment"
+        android:name="ru.zavanton.demo.main.detail.ui.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail"
         >
