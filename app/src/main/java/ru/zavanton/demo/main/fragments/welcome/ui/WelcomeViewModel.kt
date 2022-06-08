@@ -1,9 +1,9 @@
-package ru.zavanton.demo.main.home
+package ru.zavanton.demo.main.fragments.welcome.ui
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class WelcomeViewModel : ViewModel() {
 
     init {
         Log.d("zavanton", "zavanton - home view model created")

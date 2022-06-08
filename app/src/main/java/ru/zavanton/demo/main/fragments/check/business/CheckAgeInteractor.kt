@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.detail.business
+package ru.zavanton.demo.main.fragments.check.business
 
 class CheckAgeInteractor : ICheckAgeInteractor {
 

@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.detail.data
+package ru.zavanton.demo.main.fragments.check.data
 
 interface ICheckAgeService {
 

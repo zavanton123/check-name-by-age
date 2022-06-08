@@ -9,30 +9,21 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="ru.zavanton.demo.main.home.HomeFragment"
+        android:name="ru.zavanton.demo.main.fragments.welcome.ui.WelcomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"
+        tools:layout="@layout/fragment_welcome"
         >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment"
-            >
-        </action>
+            ></action>
     </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="ru.zavanton.demo.main.detail.ui.DetailFragment"
+        android:name="ru.zavanton.demo.main.fragments.check.ui.CheckAgeFragment"
         android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail"
-        >
-
-        <argument
-            android:name="detailId"
-            app:nullable="false"
-            app:argType="long"
-            />
-
-    </fragment>
+        tools:layout="@layout/fragment_check_age"
+        />
 
 </navigation>

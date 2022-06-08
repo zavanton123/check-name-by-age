@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="detailViewModel"
-            type="ru.zavanton.demo.main.detail.ui.DetailViewModel"
+            name="homeViewModel"
+            type="ru.zavanton.demo.main.fragments.welcome.ui.WelcomeViewModel"
             />
     </data>
 
@@ -21,9 +21,9 @@
             android:id="@+id/tvDetail"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:background="@color/green"
+            android:background="@color/red"
             android:gravity="center"
-            android:text="Detail Fragment"
+            android:text="Go to Detail"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
