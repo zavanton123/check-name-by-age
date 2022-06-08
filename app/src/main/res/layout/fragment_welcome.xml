@@ -21,7 +21,7 @@
             android:id="@+id/tvCheckNameStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="@dimen/text_bottom_margin"
             android:text="hello"
             app:layout_constraintBottom_toTopOf="@id/tvDetail"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,11 @@
 
         <TextView
             android:id="@+id/tvDetail"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/block_width"
+            android:layout_height="@dimen/block_height"
             android:background="@color/red"
             android:gravity="center"
-            android:text="Check Name"
+            android:text="@string/check"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

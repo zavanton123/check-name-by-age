@@ -3,4 +3,8 @@
     <string name="name_with_age">The age of %1$s is %2$s</string>
     <string name="name_not_checked">You have not checked a name yet!</string>
     <string name="latest_name">"The latest name checked is %1$s"</string>
+    <string name="enter_name">Enter name</string>
+    <string name="check_age">Check Age</string>
+    <string name="check">Check</string>
+    <string name="age">Age</string>
 </resources>

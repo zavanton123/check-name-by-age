@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import ru.zavanton.demo.EMPTY
 import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentCheckAgeBinding
 import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
@@ -50,6 +52,12 @@ class CheckAgeFragment : Fragment() {
 
         binding.tvDetail.setOnClickListener {
             detailViewModel.checkAge(binding.etName.text.toString())
+        }
+
+        binding.etName.addTextChangedListener {
+            Log.d("zavanton", "zavanton - listener")
+            val content = it ?: EMPTY
+            binding.tvDetail.isEnabled = content.isNotEmpty()
         }
     }
 }
