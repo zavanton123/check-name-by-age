@@ -1,6 +1,7 @@
 package ru.zavanton.demo.main.fragments.check.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,10 @@ class CheckAgeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        detailViewModel.ageLiveData.observe(this) {
+            Log.d("zavanton", "zavanton - ui age: $it")
+        }
 
         binding.tvDetail.setOnClickListener {
             detailViewModel.click()

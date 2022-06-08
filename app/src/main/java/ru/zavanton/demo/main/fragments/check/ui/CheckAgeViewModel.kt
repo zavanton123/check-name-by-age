@@ -1,6 +1,8 @@
 package ru.zavanton.demo.main.fragments.check.ui
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -13,6 +15,9 @@ import javax.inject.Inject
 class CheckAgeViewModel(
     private val interactor: ICheckAgeInteractor,
 ) : ViewModel() {
+
+    private val _ageLiveData = MutableLiveData<Int>()
+    val ageLiveData: LiveData<Int> = _ageLiveData
 
     init {
         Log.d("zavanton", "zavanton - detail view model created")
@@ -30,6 +35,10 @@ class CheckAgeViewModel(
             withContext(Dispatchers.IO) {
                 val age = interactor.checkAgeByName("Anton")
                 Log.d("zavanton", "zavanton - age: $age")
+
+                withContext(Dispatchers.Main) {
+                    _ageLiveData.value = age
+                }
             }
         }
     }
