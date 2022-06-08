@@ -93,4 +93,10 @@ dependencies {
 
     // Espresso
     androidTestImplementation espresso.core
+
+    // Networking
+    implementation retrofit.core
+    implementation retrofit.gson
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 }

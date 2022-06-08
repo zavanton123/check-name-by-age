@@ -16,6 +16,7 @@ ext {
     def mockito_version = "4.4.0"
     def mockito_kotlin_version = "4.0.0"
     def espresso_version = "3.4.0"
+    def retrofit_version = "2.9.0"
 
     androidx = [
             core     : "androidx.core:core-ktx:$androidx_core_version",
@@ -83,5 +84,10 @@ ext {
 
     espresso = [
             core: "androidx.test.espresso:espresso-core:$espresso_version"
+    ]
+
+    retrofit = [
+            core: "com.squareup.retrofit2:retrofit:$retrofit_version",
+            gson: "com.squareup.retrofit2:converter-gson:$retrofit_version"
     ]
 }
