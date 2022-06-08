@@ -97,6 +97,7 @@ dependencies {
     // Networking
     implementation retrofit.core
     implementation retrofit.gson
+    implementation gson.core
 
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 }

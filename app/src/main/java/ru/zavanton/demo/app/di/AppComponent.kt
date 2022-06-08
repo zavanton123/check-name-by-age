@@ -25,6 +25,10 @@ interface AppComponent {
 @Module
 class NetworkingModule {
 
+    companion object {
+        const val BASE_URL = "https://api.agify.io/"
+    }
+
     @AppScope
     @Provides
     fun provideInterceptor(): HttpLoggingInterceptor {
@@ -57,6 +61,7 @@ class NetworkingModule {
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
+            .baseUrl(BASE_URL)
             .addConverterFactory(converterFactory)
             .build()
     }

@@ -3,6 +3,10 @@ package ru.zavanton.demo.main.fragments.check.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.zavanton.demo.main.fragments.check.business.ICheckAgeInteractor
 import javax.inject.Inject
 
@@ -12,7 +16,6 @@ class CheckAgeViewModel(
 
     init {
         Log.d("zavanton", "zavanton - detail view model created")
-        Log.d("zavanton", "zavanton - interactor: ${interactor.checkAgeByName("hello")}")
     }
 
     override fun onCleared() {
@@ -22,6 +25,13 @@ class CheckAgeViewModel(
 
     fun click() {
         Log.d("zavanton", "zavanton - detail click")
+        viewModelScope.launch {
+
+            withContext(Dispatchers.IO) {
+                val age = interactor.checkAgeByName("Anton")
+                Log.d("zavanton", "zavanton - age: $age")
+            }
+        }
     }
 }
 
