@@ -7,17 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentWelcomeBinding
+import ru.zavanton.demo.main.fragments.welcome.di.WelcomeComponentManager
 
 class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
 
-    private val homeViewModel by viewModels<WelcomeViewModel>()
+    private val viewModel by viewModels<WelcomeViewModel> {
+        WelcomeComponentManager.getComponent().provideViewModelFactory()
+    }
 
-    companion object {
-
-        fun newFragment() = WelcomeFragment()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        WelcomeComponentManager.getComponent()
+            .inject(this)
+        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -26,12 +31,22 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
-        binding.homeViewModel = homeViewModel
+        binding.homeViewModel = viewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.nameLiveData.observe(viewLifecycleOwner) { name ->
+            binding.tvCheckNameStatus.text = if (name.isEmpty()) {
+                resources.getString(R.string.name_not_checked)
+            } else {
+                resources.getString(R.string.latest_name, name)
+            }
+        }
+
+        viewModel.fetchLatestName()
 
         binding.tvDetail.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.actionHomeFragmentToDetailFragment())

@@ -1,6 +1,7 @@
-package ru.zavanton.demo.main.business
+package ru.zavanton.demo.main.data
 
 import android.content.SharedPreferences
+import ru.zavanton.demo.EMPTY
 import ru.zavanton.demo.main.fragments.check.business.model.PersonModel
 import javax.inject.Inject
 
@@ -9,7 +10,6 @@ class StorageService @Inject constructor(
 ) : IStorageService {
 
     companion object {
-        const val EMPTY = ""
         private const val NAME_KEY = "name"
         private const val AGE_KEY = "age"
     }
