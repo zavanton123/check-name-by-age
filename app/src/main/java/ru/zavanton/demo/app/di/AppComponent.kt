@@ -9,16 +9,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.zavanton.demo.main.di.MainActivityComponent
 
 
 @AppScope
 @Component(
-    modules = [NetworkingModule::class]
+    modules = [
+        NetworkingModule::class
+    ]
 )
 interface AppComponent {
 
-    fun plusMainActivityComponent(mainActivityProvideModule: MainActivityProvideModule): MainActivityComponent
+    fun provideRetrofit(): Retrofit
 }
 
 @Module

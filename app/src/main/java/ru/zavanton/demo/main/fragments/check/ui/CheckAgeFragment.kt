@@ -7,17 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import ru.zavanton.demo.databinding.FragmentCheckAgeBinding
+import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
 
 class CheckAgeFragment : Fragment() {
 
     private lateinit var binding: FragmentCheckAgeBinding
 
-    private val detailViewModel by viewModels<CheckAgeViewModel>()
+    private val detailViewModel by viewModels<CheckAgeViewModel> {
+        CheckAgeComponentManager.getComponent().viewModelFactory()
+    }
 
-    companion object {
-        private const val DETAIL_ID_ARG = "detailId"
-
-        fun newFragment() = CheckAgeFragment()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        CheckAgeComponentManager.getComponent()
+            .inject(this)
+        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(

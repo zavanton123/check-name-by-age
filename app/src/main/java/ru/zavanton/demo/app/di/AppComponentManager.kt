@@ -1,5 +1,6 @@
 package ru.zavanton.demo.app.di
 
+// TODO:
 object AppComponentManager {
     private var appComponent: AppComponent? = null
 

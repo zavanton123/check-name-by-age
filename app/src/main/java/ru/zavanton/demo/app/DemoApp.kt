@@ -8,9 +8,7 @@ class DemoApp : Application() {
 
     companion object {
 
-        private lateinit var appComponent: AppComponent
-
-        fun getAppComponent(): AppComponent = appComponent
+        lateinit var appComponent: AppComponent
     }
 
     override fun onCreate() {

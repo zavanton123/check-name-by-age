@@ -1,8 +1,11 @@
 package ru.zavanton.demo.main.fragments.check.business
 
-class CheckAgeInteractor : ICheckAgeInteractor {
+import javax.inject.Inject
+
+class CheckAgeInteractor @Inject constructor(
+) : ICheckAgeInteractor {
 
     override fun checkAgeByName(name: String): Int {
-        TODO("Not yet implemented")
+        return 123
     }
 }
