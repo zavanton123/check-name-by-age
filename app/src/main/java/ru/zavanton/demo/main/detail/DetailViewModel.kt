@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 
 class DetailViewModel : ViewModel() {
 
+    init {
+        Log.d("zavanton", "zavanton - detail view model created")
+    }
+
     override fun onCleared() {
         super.onCleared()
         Log.d("zavanton", "zavanton - detail onCleared")

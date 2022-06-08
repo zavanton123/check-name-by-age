@@ -6,6 +6,10 @@
 
     <data>
 
+        <variable
+            name="detailViewModel"
+            type="ru.zavanton.demo.main.detail.DetailViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

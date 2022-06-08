@@ -17,11 +17,6 @@
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment"
             >
-            <argument
-                android:name="detailId"
-                app:nullable="false"
-                app:argType="string"
-                />
         </action>
     </fragment>
 
@@ -32,6 +27,11 @@
         tools:layout="@layout/fragment_detail"
         >
 
+        <argument
+            android:name="detailId"
+            app:nullable="false"
+            app:argType="long"
+            />
 
     </fragment>
 

@@ -6,6 +6,10 @@
 
     <data>
 
+        <variable
+            name="homeViewModel"
+            type="ru.zavanton.demo.main.home.HomeViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

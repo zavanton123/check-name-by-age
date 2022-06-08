@@ -13,7 +13,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
-    private val viewModel by viewModels<HomeViewModel>()
+    private val homeViewModel by viewModels<HomeViewModel>()
 
     companion object {
 
@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.homeViewModel = homeViewModel
         return binding.root
     }
 
@@ -33,10 +34,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tvDetail.setOnClickListener {
-            viewModel.click()
-
             findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToDetailFragment("hello")
+                HomeFragmentDirections.actionHomeFragmentToDetailFragment(200L)
             )
         }
     }
