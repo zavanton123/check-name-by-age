@@ -1,7 +1,8 @@
-package ru.zavanton.demo
+package ru.zavanton.demo.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.zavanton.demo.R
 
 class MainActivity : AppCompatActivity() {
 

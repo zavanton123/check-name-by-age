@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="ru.zavanton.demo.HomeFragment"
+        android:name="ru.zavanton.demo.main.home.HomeFragment"
         android:label="HomeFragment"
         >
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="ru.zavanton.demo.DetailFragment"
+        android:name="ru.zavanton.demo.main.detail.DetailFragment"
         android:label="DetailFragment"
         />
 
