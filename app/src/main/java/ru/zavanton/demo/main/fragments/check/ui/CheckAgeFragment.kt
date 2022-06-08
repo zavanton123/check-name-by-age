@@ -1,7 +1,6 @@
 package ru.zavanton.demo.main.fragments.check.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,23 +40,21 @@ class CheckAgeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         detailViewModel.ageLiveData.observe(viewLifecycleOwner) { age ->
-            Log.d("zavanton", "zavanton - ui age: $age")
             binding.tvResult.text = resources.getString(
                 R.string.name_with_age,
                 binding.etName.text.toString(),
                 age.toString()
             )
-            binding.etName.setText("")
+            binding.etName.setText(EMPTY)
         }
 
         binding.tvDetail.setOnClickListener {
-            detailViewModel.checkAge(binding.etName.text.toString())
+            detailViewModel.checkAge(binding.etName.text.toString().trim())
         }
 
         binding.etName.addTextChangedListener {
-            Log.d("zavanton", "zavanton - listener")
             val content = it ?: EMPTY
-            binding.tvDetail.isEnabled = content.isNotEmpty()
+            binding.tvDetail.isEnabled = content.trim().isNotEmpty()
         }
     }
 }

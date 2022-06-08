@@ -10,7 +10,7 @@ import ru.zavanton.demo.main.di.MainActivityComponent
 import ru.zavanton.demo.main.fragments.check.business.CheckAgeInteractor
 import ru.zavanton.demo.main.fragments.check.business.ICheckAgeInteractor
 import ru.zavanton.demo.main.fragments.check.data.api.CheckAgeApi
-import ru.zavanton.demo.main.fragments.check.data.repository.IPersonRepository
+import ru.zavanton.demo.main.fragments.check.business.IPersonRepository
 import ru.zavanton.demo.main.fragments.check.data.repository.PersonRepository
 import ru.zavanton.demo.main.fragments.check.data.service.CheckAgeService
 import ru.zavanton.demo.main.fragments.check.data.service.ICheckAgeService

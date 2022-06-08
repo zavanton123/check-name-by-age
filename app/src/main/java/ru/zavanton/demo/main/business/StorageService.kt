@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.data
+package ru.zavanton.demo.main.business
 
 import android.content.SharedPreferences
 import ru.zavanton.demo.EMPTY

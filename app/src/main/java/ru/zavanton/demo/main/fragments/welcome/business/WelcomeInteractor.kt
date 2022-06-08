@@ -1,6 +1,6 @@
 package ru.zavanton.demo.main.fragments.welcome.business
 
-import ru.zavanton.demo.main.data.IStorageService
+import ru.zavanton.demo.main.business.IStorageService
 import javax.inject.Inject
 
 class WelcomeInteractor @Inject constructor(

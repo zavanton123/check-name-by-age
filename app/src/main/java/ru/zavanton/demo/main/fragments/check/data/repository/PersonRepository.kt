@@ -1,6 +1,7 @@
 package ru.zavanton.demo.main.fragments.check.data.repository
 
-import ru.zavanton.demo.main.data.IStorageService
+import ru.zavanton.demo.main.business.IStorageService
+import ru.zavanton.demo.main.fragments.check.business.IPersonRepository
 import ru.zavanton.demo.main.fragments.check.business.model.PersonModel
 import ru.zavanton.demo.main.fragments.check.data.service.ICheckAgeService
 import javax.inject.Inject

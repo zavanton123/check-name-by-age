@@ -1,6 +1,5 @@
 package ru.zavanton.demo.main.fragments.check.business
 
-import ru.zavanton.demo.main.fragments.check.data.repository.IPersonRepository
 import javax.inject.Inject
 
 class CheckAgeInteractor @Inject constructor(

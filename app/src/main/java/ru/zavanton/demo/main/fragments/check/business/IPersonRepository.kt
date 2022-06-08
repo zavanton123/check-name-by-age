@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.fragments.check.data.repository
+package ru.zavanton.demo.main.fragments.check.business
 
 import ru.zavanton.demo.main.fragments.check.business.model.PersonModel
 
