@@ -1,17 +1,20 @@
 package ru.zavanton.demo.app.di
 
-// TODO:
+import android.content.Context
+
 object AppComponentManager {
-    private var appComponent: AppComponent? = null
+    private lateinit var appComponent: AppComponent
 
-    fun getAppComponent(): AppComponent =
-        appComponent ?: DaggerAppComponent.builder()
+    fun init(context: Context) {
+        appComponent = DaggerAppComponent.builder()
+            .addContext(context)
             .build()
-            .also {
-                appComponent = it
-            }
+    }
 
-    fun clearAppComponent() {
-        appComponent = null
+    fun getAppComponent(): AppComponent {
+        if (!this::appComponent.isInitialized) {
+            throw RuntimeException("AppComponent must be initialized first!")
+        }
+        return appComponent
     }
 }

@@ -1,6 +1,9 @@
 package ru.zavanton.demo.app.di
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
+import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
 import dagger.Provides
@@ -14,12 +17,24 @@ import retrofit2.converter.gson.GsonConverterFactory
 @AppScope
 @Component(
     modules = [
-        NetworkingModule::class
+        NetworkingModule::class,
+        SharedPreferencesModule::class,
     ]
 )
 interface AppComponent {
 
+    @Component.Builder
+    interface Builder {
+
+        @BindsInstance
+        fun addContext(context: Context): Builder
+
+        fun build(): AppComponent
+    }
+
     fun provideRetrofit(): Retrofit
+
+    fun provideSharedPrefs(): SharedPreferences
 }
 
 @Module
@@ -65,10 +80,18 @@ class NetworkingModule {
             .addConverterFactory(converterFactory)
             .build()
     }
+}
 
-    // TODO: remove
-//    @Provides
-//    fun provideRestApi(retrofit: Retrofit): RestApi {
-//        return retrofit.create(RestApi::class.java)
-//    }
+@Module
+class SharedPreferencesModule {
+
+    companion object {
+        private const val PREFS_FILE_NAME = "prefs"
+    }
+
+    @AppScope
+    @Provides
+    fun provideSharedPreferences(context: Context): SharedPreferences {
+        return context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
+    }
 }

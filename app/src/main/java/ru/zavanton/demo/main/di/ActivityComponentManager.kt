@@ -1,19 +1,19 @@
 package ru.zavanton.demo.main.di
 
-import ru.zavanton.demo.app.DemoApp
+import ru.zavanton.demo.app.di.AppComponentManager
 
 object ActivityComponentManager {
-    private var appComponent: MainActivityComponent? = null
+    private var activityComponent: MainActivityComponent? = null
 
     fun getAppComponent(): MainActivityComponent =
-        appComponent ?: DaggerMainActivityComponent.builder()
-            .appComponent(DemoApp.appComponent)
+        activityComponent ?: DaggerMainActivityComponent.builder()
+            .appComponent(AppComponentManager.getAppComponent())
             .build()
             .also {
-                appComponent = it
+                activityComponent = it
             }
 
-    fun clearAppComponent() {
-        appComponent = null
+    fun clear() {
+        activityComponent = null
     }
 }
