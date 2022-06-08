@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.zavanton.demo.main.fragments.check.business.ICheckAgeInteractor
+import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
 import javax.inject.Inject
 
 class CheckAgeViewModel(
@@ -19,21 +20,12 @@ class CheckAgeViewModel(
     private val _ageLiveData = MutableLiveData<Int>()
     val ageLiveData: LiveData<Int> = _ageLiveData
 
-    init {
-        Log.d("zavanton", "zavanton - detail view model created")
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("zavanton", "zavanton - detail onCleared")
-    }
-
-    fun click() {
+    fun checkAge(name: String) {
         Log.d("zavanton", "zavanton - detail click")
         viewModelScope.launch {
 
             withContext(Dispatchers.IO) {
-                val age = interactor.checkAgeByName("Anton")
+                val age = interactor.checkAgeByName(name)
                 Log.d("zavanton", "zavanton - age: $age")
 
                 withContext(Dispatchers.Main) {
@@ -41,6 +33,12 @@ class CheckAgeViewModel(
                 }
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("zavanton", "zavanton - detail onCleared")
+        CheckAgeComponentManager.clearComponent()
     }
 }
 

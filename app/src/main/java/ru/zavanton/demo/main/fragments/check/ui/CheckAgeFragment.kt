@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentCheckAgeBinding
 import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
 
@@ -37,12 +38,18 @@ class CheckAgeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        detailViewModel.ageLiveData.observe(this) {
-            Log.d("zavanton", "zavanton - ui age: $it")
+        detailViewModel.ageLiveData.observe(viewLifecycleOwner) { age ->
+            Log.d("zavanton", "zavanton - ui age: $age")
+            binding.tvResult.text = resources.getString(
+                R.string.name_with_age,
+                binding.etName.text.toString(),
+                age.toString()
+            )
+            binding.etName.setText("")
         }
 
         binding.tvDetail.setOnClickListener {
-            detailViewModel.click()
+            detailViewModel.checkAge(binding.etName.text.toString())
         }
     }
 }
