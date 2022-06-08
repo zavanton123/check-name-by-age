@@ -2,6 +2,7 @@
 <navigation
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment"
     >
@@ -10,17 +11,28 @@
         android:id="@+id/homeFragment"
         android:name="ru.zavanton.demo.main.home.HomeFragment"
         android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
         >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment"
-            />
+            >
+            <argument
+                android:name="detailId"
+                app:nullable="false"
+                app:argType="string"
+                />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
         android:name="ru.zavanton.demo.main.detail.DetailFragment"
         android:label="DetailFragment"
-        />
+        tools:layout="@layout/fragment_detail"
+        >
+
+
+    </fragment>
 
 </navigation>
