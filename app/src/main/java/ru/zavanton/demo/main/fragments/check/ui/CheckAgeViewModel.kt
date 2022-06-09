@@ -19,6 +19,8 @@ class CheckAgeViewModel(
     private val _ageLiveData = MutableLiveData<Int>()
     val ageLiveData: LiveData<Int> = _ageLiveData
 
+    val userInput = MutableLiveData<String>()
+
     fun checkAge(name: String) {
         viewModelScope.launch {
 

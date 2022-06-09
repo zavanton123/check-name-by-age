@@ -2,12 +2,13 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:adapters="http://schemas.android.com/apk/res-auto"
     >
 
     <data>
 
         <variable
-            name="homeViewModel"
+            name="viewModel"
             type="ru.zavanton.demo.main.fragments.welcome.ui.WelcomeViewModel"
             />
     </data>
@@ -22,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/text_bottom_margin"
-            android:text="hello"
+            adapters:latestName="@{viewModel.nameLiveData}"
             app:layout_constraintBottom_toTopOf="@id/tvDetail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

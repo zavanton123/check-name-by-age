@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentWelcomeBinding
 import ru.zavanton.demo.main.fragments.welcome.di.WelcomeComponentManager
 
@@ -31,20 +30,13 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
-        binding.homeViewModel = viewModel
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel.nameLiveData.observe(viewLifecycleOwner) { name ->
-            binding.tvCheckNameStatus.text = if (name.isEmpty()) {
-                resources.getString(R.string.name_not_checked)
-            } else {
-                resources.getString(R.string.latest_name, name)
-            }
-        }
 
         viewModel.fetchLatestName()
 
