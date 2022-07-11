@@ -41,11 +41,11 @@ class CheckAgeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        detailViewModel.ageLiveData.observe(viewLifecycleOwner) { age ->
+        detailViewModel.personUiModel.observe(viewLifecycleOwner) { personCheckUiModel ->
             binding.tvResult.text = resources.getString(
                 R.string.name_with_age,
                 binding.etName.text.toString(),
-                age.toString()
+                personCheckUiModel.age.toString()
             )
             binding.etName.setText(EMPTY)
         }
