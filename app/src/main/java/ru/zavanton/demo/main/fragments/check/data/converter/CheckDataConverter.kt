@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.fragments.check.data.repository
+package ru.zavanton.demo.main.fragments.check.data.converter
 
 import ru.zavanton.demo.EMPTY
 import ru.zavanton.demo.app.di.FragmentScope
@@ -8,7 +8,7 @@ import ru.zavanton.demo.main.fragments.check.data.model.PersonCheckDataModel
 import javax.inject.Inject
 
 @FragmentScope
-class DataConverter @Inject constructor() {
+class CheckDataConverter @Inject constructor() {
 
     fun convertToCheckDomainModel(storagePerson: StoragePerson): PersonCheckDomainModel {
         return PersonCheckDomainModel(

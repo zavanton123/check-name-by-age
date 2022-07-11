@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 @FragmentScope
 class WelcomeDataConverter @Inject constructor() {
+
     fun convertToDomain(person: StoragePerson): PersonWelcomeDomainModel {
         return PersonWelcomeDomainModel(
             id = person.id,

@@ -1,6 +1,7 @@
 package ru.zavanton.demo.main.fragments.check.data.repository
 
 import ru.zavanton.demo.main.data.IStorageService
+import ru.zavanton.demo.main.fragments.check.data.converter.CheckDataConverter
 import ru.zavanton.demo.main.fragments.check.domain.IPersonRepository
 import ru.zavanton.demo.main.fragments.check.domain.model.PersonCheckDomainModel
 import ru.zavanton.demo.main.fragments.check.data.service.IPersonService
@@ -9,7 +10,7 @@ import javax.inject.Inject
 class PersonRepository @Inject constructor(
     private val personService: IPersonService,
     private val storageService: IStorageService,
-    private val converter: DataConverter,
+    private val converter: CheckDataConverter,
 ) : IPersonRepository {
 
     override suspend fun fetchPerson(name: String): PersonCheckDomainModel {
