@@ -8,7 +8,6 @@ import ru.zavanton.demo.main.di.MainActivityComponent
 import ru.zavanton.demo.main.fragments.welcome.business.IWelcomeInteractor
 import ru.zavanton.demo.main.fragments.welcome.business.WelcomeInteractor
 import ru.zavanton.demo.main.fragments.welcome.ui.WelcomeFragment
-import ru.zavanton.demo.main.fragments.welcome.ui.WelcomeViewModelFactory
 
 @FragmentScope
 @Component(
@@ -20,8 +19,6 @@ import ru.zavanton.demo.main.fragments.welcome.ui.WelcomeViewModelFactory
     ]
 )
 interface WelcomeComponent {
-
-    fun provideViewModelFactory(): WelcomeViewModelFactory
 
     fun inject(fragment: WelcomeFragment)
 }

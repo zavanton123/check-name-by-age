@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import ru.zavanton.demo.EMPTY
 import ru.zavanton.demo.main.fragments.welcome.business.IWelcomeInteractor
 import ru.zavanton.demo.main.fragments.welcome.di.WelcomeComponentManager
 import javax.inject.Inject
@@ -16,7 +17,7 @@ class WelcomeViewModel(
     private val interactor: IWelcomeInteractor,
 ) : ViewModel() {
 
-    private val _nameLiveData = MutableLiveData<String>()
+    private val _nameLiveData = MutableLiveData(EMPTY)
     val nameLiveData: LiveData<String> = _nameLiveData
 
     fun fetchLatestName() {

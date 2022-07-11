@@ -10,17 +10,20 @@ import androidx.navigation.fragment.findNavController
 import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentWelcomeBinding
 import ru.zavanton.demo.main.fragments.welcome.di.WelcomeComponentManager
+import javax.inject.Inject
 
 class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
 
-    private val viewModel by viewModels<WelcomeViewModel> {
-        WelcomeComponentManager.getComponent().provideViewModelFactory()
-    }
+    @Inject
+    lateinit var viewModelFactory: WelcomeViewModelFactory
+
+    private val viewModel by viewModels<WelcomeViewModel> { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        WelcomeComponentManager.getComponent()
+        WelcomeComponentManager
+            .getComponent()
             .inject(this)
         super.onCreate(savedInstanceState)
     }
@@ -28,7 +31,7 @@ class WelcomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         binding.homeViewModel = viewModel

@@ -4,11 +4,11 @@ import ru.zavanton.demo.main.fragments.check.business.model.PersonModel
 import ru.zavanton.demo.main.fragments.check.data.api.CheckAgeApi
 import javax.inject.Inject
 
-class CheckAgeService @Inject constructor(
+class PersonService @Inject constructor(
     private val checkAgeApi: CheckAgeApi,
-) : ICheckAgeService {
+) : IPersonService {
 
-    override suspend fun checkAge(name: String): PersonModel {
+    override suspend fun fetchPersonByName(name: String): PersonModel {
         return checkAgeApi.fetchInfo(name)
     }
 }

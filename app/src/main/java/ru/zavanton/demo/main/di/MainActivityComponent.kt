@@ -18,7 +18,7 @@ import ru.zavanton.demo.main.business.StorageService
     ],
     modules = [
         StorageServiceModule::class,
-    ]
+    ],
 )
 interface MainActivityComponent {
 

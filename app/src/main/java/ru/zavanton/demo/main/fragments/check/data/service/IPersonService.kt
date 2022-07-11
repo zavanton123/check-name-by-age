@@ -2,7 +2,7 @@ package ru.zavanton.demo.main.fragments.check.data.service
 
 import ru.zavanton.demo.main.fragments.check.business.model.PersonModel
 
-interface ICheckAgeService {
+interface IPersonService {
 
-    suspend fun checkAge(name: String): PersonModel
+    suspend fun fetchPersonByName(name: String): PersonModel
 }

@@ -11,14 +11,16 @@ import ru.zavanton.demo.EMPTY
 import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentCheckAgeBinding
 import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
+import javax.inject.Inject
 
 class CheckAgeFragment : Fragment() {
 
     private lateinit var binding: FragmentCheckAgeBinding
 
-    private val detailViewModel by viewModels<CheckAgeViewModel> {
-        CheckAgeComponentManager.getComponent().viewModelFactory()
-    }
+    @Inject
+    lateinit var viewModelFactory: CheckAgeViewModelFactory
+
+    private val detailViewModel by viewModels<CheckAgeViewModel> { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         CheckAgeComponentManager.getComponent()
@@ -29,7 +31,7 @@ class CheckAgeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentCheckAgeBinding.inflate(inflater, container, false)
         binding.detailViewModel = detailViewModel

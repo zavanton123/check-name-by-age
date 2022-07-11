@@ -12,7 +12,22 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Qualifier
 
+@Qualifier
+@Retention
+@MustBeDocumented
+annotation class AppContext
+
+@Qualifier
+@Retention
+@MustBeDocumented
+annotation class BaseUrl
+
+@Qualifier
+@Retention
+@MustBeDocumented
+annotation class PrefsFilename
 
 @AppScope
 @Component(
@@ -27,7 +42,13 @@ interface AppComponent {
     interface Builder {
 
         @BindsInstance
-        fun addContext(context: Context): Builder
+        fun addContext(@AppContext context: Context): Builder
+
+        @BindsInstance
+        fun addBaseUrl(@BaseUrl baseUrl: String): Builder
+
+        @BindsInstance
+        fun addPrefsFilename(@PrefsFilename prefsFilename: String): Builder
 
         fun build(): AppComponent
     }
@@ -39,10 +60,6 @@ interface AppComponent {
 
 @Module
 class NetworkingModule {
-
-    companion object {
-        const val BASE_URL = "https://api.agify.io/"
-    }
 
     @AppScope
     @Provides
@@ -73,10 +90,11 @@ class NetworkingModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory,
+        @BaseUrl baseUrl: String,
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(converterFactory)
             .build()
     }
@@ -85,13 +103,12 @@ class NetworkingModule {
 @Module
 class SharedPreferencesModule {
 
-    companion object {
-        private const val PREFS_FILE_NAME = "prefs"
-    }
-
     @AppScope
     @Provides
-    fun provideSharedPreferences(context: Context): SharedPreferences {
-        return context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
+    fun provideSharedPreferences(
+        @AppContext context: Context,
+        @PrefsFilename prefsFilename: String,
+    ): SharedPreferences {
+        return context.getSharedPreferences(prefsFilename, Context.MODE_PRIVATE)
     }
 }
