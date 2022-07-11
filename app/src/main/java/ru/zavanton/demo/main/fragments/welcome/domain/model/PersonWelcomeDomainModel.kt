@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.fragments.welcome.business.model
+package ru.zavanton.demo.main.fragments.welcome.domain.model
 
 data class PersonWelcomeDomainModel(
     var id: Long = 0L,

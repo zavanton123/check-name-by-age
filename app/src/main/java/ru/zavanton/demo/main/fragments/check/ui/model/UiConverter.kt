@@ -1,7 +1,7 @@
 package ru.zavanton.demo.main.fragments.check.ui.model
 
 import ru.zavanton.demo.app.di.FragmentScope
-import ru.zavanton.demo.main.fragments.check.business.model.PersonCheckDomainModel
+import ru.zavanton.demo.main.fragments.check.domain.model.PersonCheckDomainModel
 import javax.inject.Inject
 
 @FragmentScope

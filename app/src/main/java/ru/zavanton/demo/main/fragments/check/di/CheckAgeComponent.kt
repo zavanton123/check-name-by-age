@@ -7,9 +7,9 @@ import dagger.Provides
 import retrofit2.Retrofit
 import ru.zavanton.demo.app.di.FragmentScope
 import ru.zavanton.demo.main.di.MainActivityComponent
-import ru.zavanton.demo.main.fragments.check.business.CheckAgeInteractor
-import ru.zavanton.demo.main.fragments.check.business.ICheckAgeInteractor
-import ru.zavanton.demo.main.fragments.check.business.IPersonRepository
+import ru.zavanton.demo.main.fragments.check.domain.CheckAgeInteractor
+import ru.zavanton.demo.main.fragments.check.domain.ICheckAgeInteractor
+import ru.zavanton.demo.main.fragments.check.domain.IPersonRepository
 import ru.zavanton.demo.main.fragments.check.data.api.CheckAgeApi
 import ru.zavanton.demo.main.fragments.check.data.repository.PersonRepository
 import ru.zavanton.demo.main.fragments.check.data.service.PersonService

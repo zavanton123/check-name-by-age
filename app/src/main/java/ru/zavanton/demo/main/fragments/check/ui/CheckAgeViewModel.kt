@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import ru.zavanton.demo.main.fragments.check.business.ICheckAgeInteractor
+import ru.zavanton.demo.main.fragments.check.domain.ICheckAgeInteractor
 import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
 import ru.zavanton.demo.main.fragments.check.ui.model.UiConverter
 import ru.zavanton.demo.main.fragments.check.ui.model.PersonCheckUiModel

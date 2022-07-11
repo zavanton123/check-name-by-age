@@ -1,4 +1,4 @@
-package ru.zavanton.demo.main.fragments.check.business.model
+package ru.zavanton.demo.main.fragments.check.domain.model
 
 data class PersonCheckDomainModel(
     var id: Long = 0L,

@@ -1,6 +1,6 @@
-package ru.zavanton.demo.main.fragments.check.business
+package ru.zavanton.demo.main.fragments.check.domain
 
-import ru.zavanton.demo.main.fragments.check.business.model.PersonCheckDomainModel
+import ru.zavanton.demo.main.fragments.check.domain.model.PersonCheckDomainModel
 import javax.inject.Inject
 
 class CheckAgeInteractor @Inject constructor(

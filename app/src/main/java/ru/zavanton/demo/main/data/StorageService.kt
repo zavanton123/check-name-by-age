@@ -2,10 +2,12 @@ package ru.zavanton.demo.main.data
 
 import android.content.SharedPreferences
 import ru.zavanton.demo.EMPTY
+import ru.zavanton.demo.app.di.ActivityScope
 import ru.zavanton.demo.main.data.model.StoragePerson
-import ru.zavanton.demo.main.fragments.check.business.model.PersonCheckDomainModel
+import ru.zavanton.demo.main.fragments.check.domain.model.PersonCheckDomainModel
 import javax.inject.Inject
 
+@ActivityScope
 class StorageService @Inject constructor(
     private val sharedPreferences: SharedPreferences,
 ) : IStorageService {

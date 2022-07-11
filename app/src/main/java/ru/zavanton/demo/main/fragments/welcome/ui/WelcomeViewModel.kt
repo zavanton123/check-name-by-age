@@ -8,25 +8,29 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import ru.zavanton.demo.EMPTY
-import ru.zavanton.demo.main.fragments.welcome.business.IWelcomeInteractor
 import ru.zavanton.demo.main.fragments.welcome.di.WelcomeComponentManager
+import ru.zavanton.demo.main.fragments.welcome.domain.IWelcomeInteractor
+import ru.zavanton.demo.main.fragments.welcome.ui.model.PersonWelcomeUiModel
+import ru.zavanton.demo.main.fragments.welcome.ui.model.WelcomeUiConverter
 import javax.inject.Inject
 
 class WelcomeViewModel(
     private val interactor: IWelcomeInteractor,
+    private val converter: WelcomeUiConverter,
 ) : ViewModel() {
 
-    private val _nameLiveData = MutableLiveData(EMPTY)
-    val nameLiveData: LiveData<String> = _nameLiveData
+    private val _personWelcomeUiModel = MutableLiveData<PersonWelcomeUiModel>()
+    val personWelcomeUiModel: LiveData<PersonWelcomeUiModel> = _personWelcomeUiModel
 
     fun fetchLatestName() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val name = interactor.fetchLatestName()
+                val personWelcomeDomainModel = interactor.fetchLatestName()
+
+                val uiModel: PersonWelcomeUiModel = converter.convertToUi(personWelcomeDomainModel)
 
                 withContext(Dispatchers.Main) {
-                    _nameLiveData.value = name
+                    _personWelcomeUiModel.value = uiModel
                 }
             }
         }
@@ -40,9 +44,10 @@ class WelcomeViewModel(
 
 class WelcomeViewModelFactory @Inject constructor(
     private val interactor: IWelcomeInteractor,
+    private val converter: WelcomeUiConverter,
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return WelcomeViewModel(interactor) as T
+        return WelcomeViewModel(interactor, converter) as T
     }
 }

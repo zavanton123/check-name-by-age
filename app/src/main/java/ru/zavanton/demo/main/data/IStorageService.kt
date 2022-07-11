@@ -1,7 +1,7 @@
 package ru.zavanton.demo.main.data
 
 import ru.zavanton.demo.main.data.model.StoragePerson
-import ru.zavanton.demo.main.fragments.check.business.model.PersonCheckDomainModel
+import ru.zavanton.demo.main.fragments.check.domain.model.PersonCheckDomainModel
 
 interface IStorageService {
 

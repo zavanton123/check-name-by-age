@@ -41,11 +41,11 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.nameLiveData.observe(viewLifecycleOwner) { name ->
-            binding.tvCheckNameStatus.text = if (name.isEmpty()) {
+        viewModel.personWelcomeUiModel.observe(viewLifecycleOwner) { personWelcomeUiModel ->
+            binding.tvCheckNameStatus.text = if (personWelcomeUiModel.name.isEmpty()) {
                 resources.getString(R.string.name_not_checked)
             } else {
-                resources.getString(R.string.latest_name, name)
+                resources.getString(R.string.latest_name, personWelcomeUiModel.name)
             }
         }
 
