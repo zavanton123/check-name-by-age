@@ -10,13 +10,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.zavanton.demo.main.fragments.check.business.ICheckAgeInteractor
 import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
-import ru.zavanton.demo.main.fragments.check.ui.model.DomainToUiConverter
+import ru.zavanton.demo.main.fragments.check.ui.model.UiConverter
 import ru.zavanton.demo.main.fragments.check.ui.model.PersonCheckUiModel
 import javax.inject.Inject
 
 class CheckAgeViewModel(
     private val interactor: ICheckAgeInteractor,
-    private val converter: DomainToUiConverter,
+    private val converter: UiConverter,
 ) : ViewModel() {
 
     private val _personUiModel = MutableLiveData<PersonCheckUiModel>()
@@ -48,7 +48,7 @@ class CheckAgeViewModel(
 
 class CheckAgeViewModelFactory @Inject constructor(
     private val interactor: ICheckAgeInteractor,
-    private val converter: DomainToUiConverter,
+    private val converter: UiConverter,
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

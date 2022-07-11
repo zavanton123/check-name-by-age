@@ -5,7 +5,7 @@ import ru.zavanton.demo.main.fragments.check.business.model.PersonCheckDomainMod
 import javax.inject.Inject
 
 @FragmentScope
-class DomainToUiConverter @Inject constructor() {
+class UiConverter @Inject constructor() {
 
     fun convertToUiModel(person: PersonCheckDomainModel): PersonCheckUiModel {
         return PersonCheckUiModel(

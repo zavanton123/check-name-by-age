@@ -8,7 +8,7 @@ import ru.zavanton.demo.main.fragments.check.data.model.PersonCheckDataModel
 import javax.inject.Inject
 
 @FragmentScope
-class StorageDomainConverter @Inject constructor() {
+class DataConverter @Inject constructor() {
 
     fun convertToCheckDomainModel(storagePerson: StoragePerson): PersonCheckDomainModel {
         return PersonCheckDomainModel(

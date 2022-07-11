@@ -9,7 +9,7 @@ import javax.inject.Inject
 class PersonRepository @Inject constructor(
     private val personService: IPersonService,
     private val storageService: IStorageService,
-    private val converter: StorageDomainConverter,
+    private val converter: DataConverter,
 ) : IPersonRepository {
 
     override suspend fun fetchPerson(name: String): PersonCheckDomainModel {
