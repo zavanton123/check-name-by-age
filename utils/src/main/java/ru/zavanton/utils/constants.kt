@@ -1,4 +1,4 @@
-package ru.zavanton.demo
+package ru.zavanton.utils
 
 const val EMPTY = ""
 

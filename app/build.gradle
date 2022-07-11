@@ -41,6 +41,11 @@ android {
 }
 
 dependencies {
+    // Include all modules
+    implementation project(":network-api")
+    implementation project(":network-impl")
+    implementation project(":utils")
+
     implementation androidx.core
     implementation androidx.appcompat
 
@@ -98,6 +103,5 @@ dependencies {
     implementation retrofit.core
     implementation retrofit.gson
     implementation gson.core
-
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation interceptor.core
 }

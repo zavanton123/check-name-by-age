@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import ru.zavanton.demo.EMPTY
 import ru.zavanton.demo.R
 import ru.zavanton.demo.databinding.FragmentCheckAgeBinding
 import ru.zavanton.demo.main.fragments.check.di.CheckAgeComponentManager
+import ru.zavanton.utils.EMPTY
 import javax.inject.Inject
 
 class CheckAgeFragment : Fragment() {
