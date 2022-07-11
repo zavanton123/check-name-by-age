@@ -1,8 +1,8 @@
 package ru.zavanton.demo.main.fragments.check.business
 
-import ru.zavanton.demo.main.fragments.check.business.model.PersonModel
+import ru.zavanton.demo.main.fragments.check.business.model.PersonCheckDomainModel
 
 interface IPersonRepository {
 
-    suspend fun fetchPerson(name: String): PersonModel
+    suspend fun fetchPerson(name: String): PersonCheckDomainModel
 }
